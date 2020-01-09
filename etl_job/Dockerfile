@@ -1,0 +1,5 @@
+FROM python:3.6-slim
+WORKDIR /code_etl
+ADD . /code_etl
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+CMD ["python", "etl_job.py"]

@@ -1,0 +1,8 @@
+pymongo
+pandas
+vaderSentiment
+requests
+sqlalchemy
+psycopg2-binary
+datetime
+numpy
