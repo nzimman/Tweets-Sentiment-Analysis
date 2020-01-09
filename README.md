@@ -44,7 +44,15 @@ The database will be in a Docker container, like with MongoDB, there is no need 
 This is done using Flask, which is a web framework written in Python. This part of the pipeline helps to visualize the results in a web browser (localhost)
 
 
-## Implementation: Docker
+## Run the project with Docker
 Docker is a virtualization tool used in this project to run the complete pipeline. All elements of the pipeline are in separate containers. The file *docker_compose.yml* contains the entire pipeline: defines the containers and their connections.
+
+This project consists of five containers:
+- Tweet collector (self-made image)
+- MongoDB (uses an already existing image)
+- ETL Job (self-made image)
+- PostGreSQL (uses an already existing image)
+- Flask (self-made image)
+
 
 
