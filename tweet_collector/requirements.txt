@@ -1,0 +1,6 @@
+pandas
+numpy
+tweepy
+json5
+pymongo
+datetime
