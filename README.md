@@ -23,7 +23,7 @@ The tweets collected in the first step, are stored in MongoDB (NoSQL database):
 In this project, MongoDB runs in a Docker container, therefore it's not necessary to install the DB on the computer.
 
 ### ETL Job: Extract - Transform - Load
-The tweets in MongoDB are extracted from the database and analyzed when executing the ETL job defined in the *etl_job.py* file. This code, reads the tweets, runs a sentiment analysis on them and saves the results in a PostGreSQL database.
+The tweets in MongoDB are extracted from the database and analyzed when executing *etl_job.py* file. This code, reads the tweets, runs the sentiment analysis and saves the results in a PostGreSQL database.
 
 In order to give the twitter collector module time to collect data, the ETL job process make use of the sleep function in Python.   
 
@@ -31,6 +31,7 @@ In order to give the twitter collector module time to collect data, the ETL job 
 ### Sentiment Analysis
 This is done using the Vader Sentiment Analysis library (*Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media, and works well on texts from other domains.*)
 
+The results are saved in the Postgres database.
 
 ### PostGres
 
