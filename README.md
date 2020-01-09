@@ -33,7 +33,13 @@ This is done using the Vader Sentiment Analysis library (*Valence Aware Dictiona
 
 The results are saved in the Postgres database.
 
-### PostGres
+
+### PostGreSQL
+The database will be in a Docker container, like with MongoDB, there is no need to install this DB on the computer.
+
+
+### Visualization of the analysis
+This is done using Flask, which is a web framework written in Python. The results can be visualized in a web browser (localhost)
 
 
 ## Implementation: Docker
