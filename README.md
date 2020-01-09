@@ -29,7 +29,9 @@ In order to give the twitter collector module time to collect data, the ETL job 
 
 
 ### Sentiment Analysis
-This is done using the Vader Sentiment Analysis library (*Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media, and works well on texts from other domains.*)
+This is done using the Vader Sentiment Analysis library 
+
+>Valence Aware Dictionary and sEntiment Reasoner is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media, and works well on texts from other domains.
 
 The results are saved in the Postgres database.
 
