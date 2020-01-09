@@ -1,0 +1,39 @@
+version: '3'
+services:
+  tweet_collector:
+    build: tweet_collector/
+    volumes:
+    - ./tweet_collector/:/code
+    links:
+    - mongodb
+  mongodb:  # now we add a mongo DB
+    image: mongo #we download the official from Docker
+    container_name: mongodb_pipe
+    ports:
+    -  "27018:27017" #port number is my local machine:port number inside the container
+  #hello_world:
+  #  build: hello_world/
+  etl_job:
+    build: etl_job/
+    links:
+    - mongodb
+    - postgresdb
+    volumes:
+    - ./etl_job/:/code_etl
+  postgresdb:  # now we add a postgres DB
+    image: postgres #we download the official from Docker
+    container_name: postgresdb_pipe
+    ports:
+    - "5555:5432"
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=tweets
+  flask:
+      build: to_flask/
+      links:
+      - postgresdb
+      volumes:
+      - ./to_flask/:/code_flask
+      ports:
+      - "5000:5000"
