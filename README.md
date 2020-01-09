@@ -1,4 +1,4 @@
-# Tweets Sentiment Analysis
+# Sentiment Analysis of Tweets
 
 ## Synopsis
 The goal of this project is to construct a data pipeline that analyzes the sentiment of tweets.
@@ -11,7 +11,7 @@ The goal of this project is to construct a data pipeline that analyzes the senti
 For collecting tweets, one needs Twitter credentials (register the application on apps.twitter.com and create *Access Tokens*). 
 
 The tweets collector consists of:
-- config.py: contains Twitter credentials --> Need to add your own credentials into this file
+- config.py: contains Twitter credentials --> add the credentials into this file
 - twitter_streammer.py: handles authentication, listens in live tweets, filters tweets by keyword and language, parses the tweets for relevant data and loads the data into MongoDB database.
 
 ### MongoDB
@@ -23,7 +23,7 @@ The tweets collected in the first step, are stored in MongoDB (NoSQL database):
 In this project, MongoDB runs in a Docker container, therefore it's not necessary to install the DB on the computer.
 
 ### ETL Job: Extract - Transform - Load
-The tweets in MongoDB are extracted from the database and analyzed when executing *etl_job.py* file. This code, reads the tweets, runs the sentiment analysis and saves the results in a PostGreSQL database.
+The tweets in MongoDB are extracted and analyzed when executing *etl_job.py* file. This code, reads the tweets, runs the sentiment analysis and saves the results in a PostGreSQL database.
 
 In order to give the twitter collector module time to collect data, the ETL job process make use of the sleep function in Python.   
 
@@ -41,9 +41,10 @@ The database will be in a Docker container, like with MongoDB, there is no need 
 
 
 ### Visualization of the analysis
-This is done using Flask, which is a web framework written in Python. The results can be visualized in a web browser (localhost)
+This is done using Flask, which is a web framework written in Python. This part of the pipeline helps to visualize the results in a web browser (localhost)
 
 
 ## Implementation: Docker
+Docker is a virtualization tool used in this project to run the complete pipeline. All elements of the pipeline are in separate containers. The file *docker_compose.yml* contains the entire pipeline: defines the containers and their connections.
 
 
